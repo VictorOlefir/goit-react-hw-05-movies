@@ -1,6 +1,6 @@
-import { fetchMovieCredits } from '../../api';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { fetchMovieCredits } from '../../api';
 
 import {
   CastContainer,
@@ -22,7 +22,7 @@ const Cast = () => {
 
   return (
     <CastContainer>
-      {credits.length > 0 && (
+      {!!credits.length && (
         <CastList>
           {credits.map(({ id, name, character, photo }) => {
             return (

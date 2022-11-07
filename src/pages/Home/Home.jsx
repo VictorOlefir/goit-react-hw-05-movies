@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { fetchTrending } from '../../api';
 import {
   HomeContainer,
   HomeTitle,
@@ -10,6 +9,7 @@ import {
   Img,
   MovieTitle,
 } from './Home.styled';
+import { fetchTrending } from '../../api';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <HomeContainer>
       <HomeTitle>Tranding today</HomeTitle>
-      {movies.length > 0 && (
+      {!!movies.length && (
         <MovieList>
           {movies.map(({ id, title, poster }) => (
             <MovieItem key={id}>
